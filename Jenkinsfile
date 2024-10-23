@@ -1,15 +1,20 @@
 pipeline {
-    agent any
+    agent {
+        // Define agent details here
+    }
     environment {
-        CC = 'clang'
+        AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
+        AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
     }
     stages {
-        stage('Example') {
-            environment {
-                DEBUG_FLAGS = '-g'
-            }
+        stage('Example stage 1') {
             steps {
-                sh 'printenv'
+                echo "AWS_ACCESS_KEY_ID_Value = ${AWS_ACCESS_KEY_ID}"
+            }
+        }
+        stage('Example stage 2') {
+            steps {
+                //
             }
         }
     }
