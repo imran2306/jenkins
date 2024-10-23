@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        any
-    }
+    agent any
     environment {
         AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
         AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
@@ -14,7 +12,7 @@ pipeline {
         }
         stage('Example stage 2') {
             steps {
-                //
+                echo "${AWS_SECRET_ACCESS_KEY}"
             }
         }
     }
