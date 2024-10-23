@@ -3,7 +3,10 @@ pipeline {
     stages {
         stage('Example') {
             steps {
-                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+                echo '''
+                BUILD_ID = ${env.BUILD_ID}
+                JENKINS_URL =  ${env.JENKINS_URL}
+                '''
             }
         }
     }
